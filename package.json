@@ -5,10 +5,11 @@
   "scripts": {
     "lint": "eslint -c ./config/eslint.config.json ./src/js --ext jsx",
     "test": "mocha src/**/*.test.js --compilers js:babel-core/register --require ignore-styles",
-    "webpack-dev": "webpack-dev-server --config ./config/webpack.config.js --host 0.0.0.0 --content-base public --inline --hot",
-    "webpack-build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js",
-    "dev": "npm run webpack-dev",
-    "build": "npm run lint && npm run test && npm run webpack-build"
+    "webpack-client-dev": "webpack-dev-server --config ./config/webpack.client.config.js --host 0.0.0.0 --content-base public --inline --hot",
+    "webpack-client-build": "cross-env NODE_ENV=production webpack --config ./config/webpack.client.config.js",
+    "webpack-server-build": "cross-env NODE_ENV=production webpack --config ./config/webpack.server.config.js",
+    "dev": "npm run webpack-client-dev",
+    "build": "npm run lint && npm run test && npm run webpack-client-build && npm run webpack-server-build"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,7 @@
   },
   "keywords": [
     "react",
+    "express",
     "template"
   ],
   "author": "Matthew Shaile",
