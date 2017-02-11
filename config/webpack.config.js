@@ -6,7 +6,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   context: path.join(__dirname, '../src/'),
   devtool: debug ? 'inline-sourcemap' : '',
-  entry: './js/app.jsx',
+  entry: './client.jsx',
   resolve: {
     extensions: ['.js', '.json', '.jsx', '.scss']
   },
@@ -28,7 +28,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, '../src/public/'),
+    path: path.join(__dirname, '../public/'),
     filename: 'client.min.js'
   },
   plugins: debug ? [new ExtractTextPlugin('style.css')] : [
